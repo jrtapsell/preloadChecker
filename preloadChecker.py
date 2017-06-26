@@ -4,13 +4,13 @@ import os
 from chrome_data import ChromeProvider
 
 import requests
-from flask import Flask, Response
+from flask import Flask, Response, send_file
 
 app = Flask(__name__)
 
 chrome_data = ChromeProvider()
 
-@app.route('/<url>')
+@app.route('/api/<url>')
 def hello_world(url):
     data = {}
     data["browsers"] = {}
@@ -25,7 +25,10 @@ def hello_world(url):
     data["preload_list"] = preload_list
     return Response(response=json.dumps(data), mimetype="application/json")
 
+
+@app.route("/")
+def index():
+    return send_file("static/index.html")
 if __name__ == '__main__':
-    app.debug = True
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
