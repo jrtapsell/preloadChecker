@@ -1,4 +1,6 @@
 import json
+import os
+
 from chrome_data import ChromeProvider
 
 import requests
@@ -23,6 +25,7 @@ def hello_world(url):
     data["preload_list"] = preload_list
     return Response(response=json.dumps(data), mimetype="application/json")
 
-
 if __name__ == '__main__':
-    app.run()
+    app.debug = True
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
