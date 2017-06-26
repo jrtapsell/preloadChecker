@@ -1,8 +1,11 @@
 var data = $("#siteURL");
 var body = $("#data");
+var statusArea = $("#status");
 
 $("#load").click(function() {
     $.get("/api/" + data.val(), undefined, function (data) {
+           console.log(data);
+            statusArea.text(data["preload_list"]["status"]);
             $.get("/static/browser_type.hbs", undefined, function (templateUncomp) {
                var template = Handlebars.compile(templateUncomp);
                 body.empty();
@@ -16,7 +19,6 @@ $("#load").click(function() {
                             "state": pl,
                             "text_state" : JSON.stringify(pl)
                         };
-                        console.log(data);
                         var item = template(data);
                         itemShell.html(item);
                         itemShell.appendTo(div);
