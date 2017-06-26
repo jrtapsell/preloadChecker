@@ -10,7 +10,7 @@ class ChromeProvider(object):
     SINGLE_VERSION_URL \
         = "https://chromium.googlesource.com/chromium/src/+/%s/net/http/transport_security_state_static.json?format=TEXT"
 
-    CACHE_PATH = "preloadChecker/cache"
+    CACHE_PATH = "/tmp/cache"
     DATA_PATH = CACHE_PATH + "/data"
     VERSIONS_FILE = CACHE_PATH + "/versions.json"
 
