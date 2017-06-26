@@ -4,6 +4,7 @@ from base64 import b64decode
 
 import requests
 
+
 class ChromeProvider(object):
     VERSIONS_URL = "https://omahaproxy.appspot.com/all.json"
     SINGLE_VERSION_URL \
