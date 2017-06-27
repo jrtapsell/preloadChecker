@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js" integrity="sha256-5Ud5lebnfqDOArqCr7p6w5KxX1dwXFcqiBw25dhhYFI=" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"
+            integrity="sha256-5Ud5lebnfqDOArqCr7p6w5KxX1dwXFcqiBw25dhhYFI="
+            crossorigin="anonymous"></script>
     <style>
         .listed {
             background: green;
@@ -12,14 +18,14 @@
         .unlisted {
             background: red;
         }
-        .browser {
-            margin-top: 1em;
+        h1, h2, h3, h4, h5, h6 {
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 <input id="siteURL" value="jrtapsell.co.uk"/> <button id="load">Load</button>
-<div id="status"></div>
 <div id="data"></div>
 <script defer src="/static/index.js">
 </script>

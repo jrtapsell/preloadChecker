@@ -1,5 +1,14 @@
-<div class="{{#if state}}listed{{else}}unlisted{{/if}}">
-    <span>{{os}}</span>
-    <span>{{build}}</span>
-    <span>{{text_state}}</span>
-</div>
+<h1>Preload status: {{preload_list/status}}<h1/>
+{{#with browsers}}
+{{#each this}}
+    <div>
+    <h1>{{@key}}</h1>
+    {{#each this}}
+        <h2>{{@key}}</h2>
+        {{#each this}}
+        <h3 class="{{#if this}}listed{{else}}unlisted{{/if}}">{{@key}}</h3>
+        {{/each}}
+    {{/each}}
+    </div>
+{{/each}}
+{{/with}}
