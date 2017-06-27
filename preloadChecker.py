@@ -20,7 +20,10 @@ def hello_world(url):
         data["browsers"]["chrome"][os_name] = os_data
         for build_name, build_data in os_builds.items():
             version_data = chrome_data.single_versions[build_data["hash"]]
-            os_data[build_name] = version_data[url] if url in version_data else None
+            os_data[build_name] = {}
+            os_data[build_name]["state"] = version_data[url] if url in version_data else None
+            major, minor, build, patch = build_data["build"].split(".")
+            os_data[build_name]["version"] = {"major": major, "minor": minor, "build": build, "patch": patch}
     preload_list = json.loads(requests.get("https://hstspreload.org/api/v2/status", params={"domain": url}).text)
     data["preload_list"] = preload_list
     return Response(response=json.dumps(data), mimetype="application/json")

@@ -32,10 +32,10 @@ class ChromeProvider(object):
                 for version in item["versions"]:
                     if "chromium_commit" not in version:
                         continue
-                    hash = version["chromium_commit"]
                     version_data = {}
                     data_object[version["channel"]] = version_data
-                    version_data["hash"] = hash
+                    version_data["hash"] = version["chromium_commit"]
+                    version_data["build"] = version["version"]
                 if len(data_object) == 0:
                     del cleaned_data[item["os"]]
 

@@ -1,14 +1,49 @@
-<h1>Preload status: {{preload_list/status}}<h1/>
+{{#with preload_list}}
+    <table class="mdl-cell mdl-cell--12-col">
+        <tr>
+            <td>
+                URL
+            </td>
+            <td>
+                {{name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Preload Status
+            </td>
+            <td>
+                {{status}}
+            </td>
+        </tr>
+    </table>
+{{/with}}
 {{#with browsers}}
-{{#each this}}
-    <div>
-    <h1>{{@key}}</h1>
     {{#each this}}
-        <h2>{{@key}}</h2>
-        {{#each this}}
-        <h3 class="{{#if this}}listed{{else}}unlisted{{/if}}">{{@key}}</h3>
-        {{/each}}
+        <details class="browser_name">
+            <summary>{{@key}}</summary>
+            <div class="contents">
+                {{#each this}}
+                    <details class="tree_item browser_os">
+                        <summary>{{@key}}</summary>
+                        <div class="contents">
+                        {{#each this}}
+                            <div class="tree_item browser_branch {{#if state}}listed{{else}}unlisted{{/if}} mdl-grid">
+                                <div class="mdl-cell mdl-cell--6-col">{{@key}}</div>
+                                <div class="mdl-cell mdl-cell--6-col">
+                                    {{#with version}}
+                                        <span class="build_major">{{major}}</span>.
+                                        <span class="build_minor">{{minor}}</span>.
+                                        <span class="build_build">{{build}}</span>.
+                                        <span class="build_patch">{{patch}}</span>
+                                    {{/with}}
+                                </div>
+                            </div>
+                        {{/each}}
+                        </div>
+                    </details>
+                {{/each}}
+            </div>
+        </details>
     {{/each}}
-    </div>
-{{/each}}
 {{/with}}
