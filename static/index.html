@@ -56,15 +56,27 @@
     </style>
 </head>
 <body>
-<div class="mdl-cell mdl-cell--12-col">
-    <form action="javascript: void(0)" class="mdl-cell mdl-cell--12-col mdl-grid">
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">HSTS Preload Checker</span>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content mdl-grid mdl-cell--12-col">
+        <form action="javascript: void(0)" class="mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
             <input class="mdl-textfield__input" type="text" id="siteURL" value="jrtapsell.co.uk">
             <label class="mdl-textfield__label" for="siteURL">Site Address</label>
         </div>
         <button id="load" class="mdl-cell mdl-cell--4-col">Load</button>
     </form>
-    <div id="data"></div>
+    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate mdl-cell--12-col"></div>
+    <div id="data" class="mdl-grid mdl-cell mdl-cell--12-col"></div>
+    </div>
+  </main>
 </div>
 </body>
 <script defer src="/static/index.js"></script>
