@@ -79,6 +79,8 @@ class ChromeProvider(object):
                 self.single_versions[branch["hash"]] = self.load_single_version(branch["hash"])
 
     def __init__(self):
+        if not os.path.exists("/tmp/cache"):
+            os.mkdir("/tmp/cache")
         if not os.path.exists(self.CACHE_PATH):
             os.mkdir(self.CACHE_PATH)
         if not os.path.exists(self.DATA_PATH):

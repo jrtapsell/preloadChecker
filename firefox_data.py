@@ -8,9 +8,9 @@ class FirefoxProvider(object):
         "mozilla-release"
     ]
     def __init__(self):
+        if not os.path.exists("/tmp/cache"):
+            os.mkdir("/tmp/cache")
         self.items = {}
-        if not os.path.exists(self.CACHE_PATH):
-            os.mkdir(self.CACHE_PATH)
         if not os.path.exists(self.CACHE_PATH + "/firefox/"):
             os.mkdir(self.CACHE_PATH + "/firefox/")
         for i in self.VERSIONS:
